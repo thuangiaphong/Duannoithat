@@ -1,0 +1,49 @@
+﻿@model IEnumerable<Duannoithat.Models.Order>
+
+<h2 class="mb-4">Danh sách đơn hàng của bạn</h2>
+
+@if (!Model.Any())
+{
+    <div class="alert alert-info">Bạn chưa có đơn hàng nào.</div>
+}
+else
+{
+    @foreach (var order in Model)
+    {
+        <div class="border rounded p-4 mb-4 shadow-sm">
+            <h5 class="text-primary">🧾 Đơn hàng #@order.Id - <small>Ngày đặt: @order.OrderPlaced.ToString("dd/MM/yyyy")</small></h5>
+            <p><strong>👤 Tên khách:</strong> @order.FirstName @order.LastName</p>
+            <p><strong>📧 Email:</strong> @order.Email</p>
+            <p><strong>📞 Số điện thoại:</strong> @order.Phone</p>
+            <p><strong>🏠 Địa chỉ:</strong> @order.Address</p>
+            <p><strong>💰 Tổng tiền:</strong> @order.OrderTotal.ToString("C", new System.Globalization.CultureInfo("en-US"))</p>
+
+            @if (order.OrderDetails != null && order.OrderDetails.Any())
+            {
+                <table class="table table-striped mt-3">
+                    <thead>
+                        <tr>
+                            <th>Sản phẩm</th>
+                            <th>Số lượng</th>
+                            <th>Giá</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in order.OrderDetails)
+                        {
+                            <tr>
+                                <td>@item.Product?.Name</td>
+                                <td>@item.Quantity</td>
+                                <td>@item.Price.ToString("C", new System.Globalization.CultureInfo("en-US"))</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <div class="text-muted">Không có sản phẩm nào trong đơn hàng này.</div>
+            }
+        </div>
+    }
+}

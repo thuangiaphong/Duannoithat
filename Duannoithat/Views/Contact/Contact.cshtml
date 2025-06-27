@@ -1,0 +1,37 @@
+﻿@model Duannoithat.Models.Contact
+
+@{
+    ViewData["Title"] = "Contact";
+}
+
+<h1 class="text-center">Get in Touch</h1>
+<p class="text-center">One of our team will be in contact with you shortly.</p>
+
+<div class="d-flex justify-content-center">
+    <div class="card p-4" style="width: 400px;">
+        <form asp-action="Contact" method="post">
+            <div class="mb-3">
+                <input asp-for="Name" class="form-control" placeholder="Your name" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <input asp-for="Email" class="form-control" placeholder="Your email" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <textarea asp-for="Message" class="form-control" placeholder="Message" rows="4"></textarea>
+                <span asp-validation-for="Message" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-warning w-100">Send</button>
+        </form>
+
+        @if (ViewBag.Message != null)
+        {
+            <div class="alert alert-success mt-3 text-center">@ViewBag.Message</div>
+        }
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
