@@ -26,6 +26,7 @@
         </div>
     </div>
 </section>
+
 <section data-bs-version="5.1" class="content2 cid-tsEQSCqggh" id="content2-2">
     <div class="container">
         <div class="mbr-section-head">
@@ -33,8 +34,7 @@
                 <strong>Top Selling</strong>
             </h4>
             <h5 class="mbr-section-subtitle mbr-fonts-style align-center mb-0 mt-2 display-5">
-                Make your mornings
-                better with our top-selling product.
+                Make your mornings better with our top-selling product.
             </h5>
         </div>
         <div class="row mt-4">
@@ -43,7 +43,7 @@
                 <div class="item features-image сol-12 col-md-6 col-lg-4">
                     <div class="item-wrapper">
                         <div class="item-img">
-                            <img src="@item.ImageUrl" alt="Coffee Shop" title="">
+                            <img src="@item.ImageUrl" alt="Shop Noithat" title="">
                         </div>
                         <div class="item-content">
                             <a asp-controller="Product" asp-action="Detail" asp-route-id="@item.Id"
@@ -52,10 +52,12 @@
                                     <strong>@item.Name</strong>
                                 </h6>
                             </a>
-                            <p class="mbr-text mbr-fonts-style mt-3 display7">@item.Price.ToString("C")</p>
+                            <p class="mbr-text mbr-fonts-style mt-3 display7">
+                                @item.Price.ToString("N0", new System.Globalization.CultureInfo("vi-VN"))$
+                            </p>
                         </div>
                         <div class="mbr-section-btn item-footer mt-2">
-                            <a asp-controller="ShoppingCart" asp-action="AddToShoppingCart" asp-route-pID="@item.Id" class=" btn item-btn btn-primary display-4" target="_self">
+                            <a asp-controller="ShoppingCart" asp-action="AddToShoppingCart" asp-route-pID="@item.Id" class="btn item-btn btn-primary display-4" target="_self">
                                 <span class="mbrib-cart-add mbr-iconfont mbr-iconfont-btn"></span>Add to cart&nbsp;
                             </a>
                         </div>
@@ -65,6 +67,7 @@
         </div>
     </div>
 </section>
+
 <section data-bs-version="5.1" class="footer7 cid-tsQdrs3Vrj" once="footers" id="footer7-13">
     <div class="container">
         <div class="media-container-row align-center mbr-white">

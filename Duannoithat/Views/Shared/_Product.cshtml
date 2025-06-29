@@ -14,7 +14,9 @@
                             <strong>@item.Name</strong>
                         </h6>
                     </a>
-                    <p class="mbr-text mbr-fonts-style mt-3 display7">@item.Price.ToString("C")</p>
+                    <p class="mbr-text mbr-fonts-style mt-3 display7">
+                        @item.Price.ToString("N0", new System.Globalization.CultureInfo("vi-VN"))$
+                    </p>
                 </div>
                 <div class="mbr-section-btn item-footer mt-2">
                     <a asp-controller="ShoppingCart" asp-action="AddToShoppingCart" asp-route-pID="@item.Id" class="btn item-btn btn-primary display-4" target="_self">

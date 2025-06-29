@@ -16,7 +16,7 @@ else
             <p><strong>📧 Email:</strong> @order.Email</p>
             <p><strong>📞 Số điện thoại:</strong> @order.Phone</p>
             <p><strong>🏠 Địa chỉ:</strong> @order.Address</p>
-            <p><strong>💰 Tổng tiền:</strong> @order.OrderTotal.ToString("C", new System.Globalization.CultureInfo("en-US"))</p>
+            <p><strong>💰 Tổng tiền:</strong> @order.OrderTotal.ToString("#,0$", new System.Globalization.CultureInfo("en-US"))</p>
 
             @if (order.OrderDetails != null && order.OrderDetails.Any())
             {
@@ -34,7 +34,7 @@ else
                             <tr>
                                 <td>@item.Product?.Name</td>
                                 <td>@item.Quantity</td>
-                                <td>@item.Price.ToString("C", new System.Globalization.CultureInfo("en-US"))</td>
+                                <td>@item.Price.ToString("#,0$", new System.Globalization.CultureInfo("en-US"))</td>
                             </tr>
                         }
                     </tbody>
